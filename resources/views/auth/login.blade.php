@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                @if (strpos(Route::currentRouteName(), 'admin.login') === false)
+                    <div class="card-header">{{ __('Login') }}</div>
+                @else
+                    <div class="card-header">{{ __('Admin Login') }}</div>
+                @endif
 
                 <div class="card-body">
                     <form method="POST" action="{{ strpos(Route::currentRouteName(), 'admin.login') !== false ? route('admin.login') : route('login') }}">

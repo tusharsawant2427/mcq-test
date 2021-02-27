@@ -28,7 +28,7 @@
                         <h3 class="m-widget_content-title" style="text-align: center;color: black;">YOUR RESULT</h3>
                         <div class="m-widget_content-items">
                             <div class="m-widget_content-item">
-                                <span>Total Questions</span>
+                                <span>Total Questions Attend</span>
                                 <span class="m--font-accent">{{ $total_attend_questions }}/{{ $total_questions }}</span>
                             </div>
                             <div class="m-widget_content-item">

@@ -33,7 +33,6 @@ class HomeController extends Controller
         $amount = 10;
         $response = $client->request('GET', $endpoint, ['query' => [
             'amount' => $amount, 
-            'difficulty' => 'easy'
         ]]);
 
         $statusCode = $response->getStatusCode();
@@ -93,7 +92,5 @@ class HomeController extends Controller
 
     public function Login(){
         return Redirect::route('start_test');
-
-        
     }
 }

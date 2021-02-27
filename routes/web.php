@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace'=>'A
     
     Route::get('/dashboard', 'HomeController@dashboard')->name('admin.dashboard');
     Route::post('/user-list', 'HomeController@UseList')->name('admin.user-list');
-    Route::post('/logout','Auth\LoginController@logout')->name('admin.logout');
+    Route::get('/logout','Auth\LoginController@logout')->name('admin.logout');
 
 });
 

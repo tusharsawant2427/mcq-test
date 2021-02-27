@@ -31,6 +31,9 @@ class HomeController extends Controller
             // $join->on('utr.id','=',\DB::raw('(select max(id) from user_test_results where user_id=users.id group by user_id)'));   
             $join->on('utr.user_id','users.id');   
         });
+
+        $total_count=$users->count();
+
         // Start Custom Search 
             // $users = User::select('*');
             if (!empty($request->search['value'])) {
@@ -41,13 +44,12 @@ class HomeController extends Controller
             }
         // End Custom Search
 
-        $total_count=User::count('*');
         
         $users=$users->OrderBy($OrderByColumn,$SortBy)->offset($request->start)->limit($request->length)->selectRaw('users.*,utr.total_questions,utr.total_questions_ans,utr.total_questions_attend')->get();
         $response['draw']=$request->draw;
         $response['data']=$users;
         $response['recordsTotal']=$total_count;
-        $response['recordsFiltered']=$total_count;
+        $response['recordsFiltered']=$users->count();
 
         return  $response;
         

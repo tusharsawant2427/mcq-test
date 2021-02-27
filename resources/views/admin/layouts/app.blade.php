@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8" />
-    <title>Metronic | Dashboard</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 
@@ -67,9 +67,9 @@ ul.topnav li.right {float: right;}
 <body>
 
 	<ul class="topnav">
-	<li><a class="active" href="#home">Users</a></li>
+	<li><a class="active" href="{{ route('admin.dashboard') }}">Users</a></li>
 	
-	<li class="right"><a href="#about">Logout</a></li>
+	<li class="right"><a href="{{ route('admin.logout') }}">Logout</a></li>
 	</ul>
 	<main class="py-4">
 		@yield('content')
